@@ -1,0 +1,39 @@
+{
+  "name": "key-upload",
+  "version": "0.1.2",
+  "description": "一键打包前端代码并部署到Linux服务器。支持密码文件/密钥登录，支持压缩、解压、备份服务器目录功能，支持代码同步到git仓库。",
+  "keywords": [
+    "password",
+    "key",
+    "ssh2",
+    "shelljs",
+    "fs",
+    "path",
+    "vite",
+    "tar",
+    "One-click packaging",
+    "Deployment server"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "main": "./bin/index.js",
+  "bin": {
+    "key-upload": "./bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yilingsj/key-upload.git"
+  },
+  "author": "315800015@qq.com",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "commander": "^9.3.0",
+    "dayjs": "^1.11.1",
+    "open": "^8.2.1",
+    "shelljs": "^0.8.4",
+    "ssh2": "^1.10.0",
+    "ssh2-sftp-client": "^6.0.1"
+  }
+}
