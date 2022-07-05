@@ -1,6 +1,6 @@
 {
   "name": "key-upload",
-  "version": "0.1.2",
+  "version": "0.1.5",
   "description": "一键打包前端代码并部署到Linux服务器。支持密码文件/密钥登录，支持压缩、解压、备份服务器目录功能，支持代码同步到git仓库。",
   "keywords": [
     "password",

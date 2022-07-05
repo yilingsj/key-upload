@@ -4,7 +4,7 @@
  * @Author: yiling (315800015@qq.com)
  * @Date: 2021-05-27 21:13:55
  * @LastEditors: yiling (315800015@qq.com)
- * @LastEditTime: 2022-06-25 20:57:01
+ * @LastEditTime: 2022-07-05 10:27:40
  * @FilePath: \keyUpload\bin\index.js
  */
 const shell = require('shelljs')
@@ -28,6 +28,7 @@ const keyPath = path.join(PRESET_PATH, '../lib/utils/key-upload.js') // 普通�
 const gitPath = path.join(PRESET_PATH, '../lib/utils/git.js') // 上传到git仓库
 const zipPath = path.join(PRESET_PATH, '../lib/utils/zip.js') // 上传压缩包到服务器并自动备份和解压(推荐)
 const sshPath = path.join(PRESET_PATH, '../lib/utils/ssh.js') // 测试连接服务器
+const uniH5Path = path.join(PRESET_PATH, '../lib/utils/uni-h5.js') // uni-app项目
 
 /**
  * @author: yiling (315800015@qq.com)
@@ -41,6 +42,9 @@ async function runTask() {
   // 如果执行了创建命令，则先检测再根据情况决定是否自动创建
   if (params === 'init') {
     await createdClientConfiguration() // 检查客户端配置文件是否存在，若不存在则尝试自动创建
+    return
+  } else if (params === 'initUniH5') {
+    await createdClientConfiguration(true) // 在vue-cli创建的uni-app项目中，检查客户端配置文件是否存在，若不存在则尝试自动创建
     return
   }
   await checkClientConfiguration() // 检查客户端配置文件是否存在
@@ -60,6 +64,8 @@ async function runTask() {
     require(zipPath)
   } else if (params === 'ssh') {
     require(sshPath)
+  } else if (params === 'uniH5') {
+    require(uniH5Path)
   } else if (params === undefined) {
     require(keyPath)
   } else {
